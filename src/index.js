@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import "./index.css";
+import './index.css';
 
 class Box extends React.Component {
   selectBox = () => {
@@ -23,12 +23,12 @@ class Grid extends React.Component {
   render() {
     const width = this.props.cols * 16;
     var rowsArr = [];
-    var boxClass = "";
+    var boxClass = '';
 
     for (var i = 0; i < this.props.rows; i++) {
       for (var j = 0; j < this.props.cols; j++) {
-        let boxId = i + "_" + j;
-        boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
+        let boxId = i + '_' + j;
+        boxClass = this.props.gridFull[i][j] ? 'box on' : 'box off';
         rowsArr.push(
           <Box
             boxClass={boxClass}
@@ -43,7 +43,7 @@ class Grid extends React.Component {
     }
 
     return (
-      <div className="grid" style={{ width: width }}>
+      <div className='grid' style={{ width: width }}>
         {rowsArr}
       </div>
     );
@@ -51,25 +51,28 @@ class Grid extends React.Component {
 }
 
 class Buttons extends React.Component {
-  handleSelect = evt => {
-    this.props.gridSize(evt);
+  handleSelect = e => {
+    this.props.gridSize(e.target.value);
   };
 
   render() {
     return (
-      <div className="center">
+      <div className='center'>
         <button onClick={this.props.playButton}>Play</button>
         <button onClick={this.props.pauseButton}>Pause</button>
         <button onClick={this.props.clear}>Clear</button>
         <button onClick={this.props.slow}>Slow</button>
         <button onClick={this.props.fast}>Fast</button>
         <button onClick={this.props.seed}>Seed</button>
-        <select title="Grid Size" id="size-menu" onChange={this.handleSelect}>
-          <option value="1">20 x 10</option>
-          <option value="2" selected>
-            50 x 30
-          </option>
-          <option value="3"> 70 x 50</option>
+        <select
+          defaultValue='2'
+          title='Grid Size'
+          id='size-menu'
+          onChange={this.handleSelect}
+        >
+          <option value='1'>20 x 10</option>
+          <option value='2'>50 x 30</option>
+          <option value='3'> 70 x 50</option>
         </select>
       </div>
     );
@@ -140,11 +143,11 @@ class Main extends React.Component {
   };
   gridSize = size => {
     switch (size) {
-      case "1":
+      case '1':
         this.cols = 20;
         this.rows = 10;
         break;
-      case "2":
+      case '2':
         this.cols = 50;
         this.rows = 30;
         break;
@@ -215,4 +218,4 @@ function arrayClone(arr) {
   return JSON.parse(JSON.stringify(arr));
 }
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+ReactDOM.render(<Main />, document.getElementById('root'));
