@@ -19,12 +19,12 @@ body {
     #5ffbf1
   );
   height: 100vh;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .box {
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   width: 15px;
   height: 15px;
   margin-left: -1px;
@@ -32,11 +32,11 @@ body {
 }
 
 .off {
-  background-color: lightgray;
+  background-color: white;
 }
 
 .on {
-  background-color: green;
+  background-color: #4eb1ff;
 }
 
 .box:hover {
@@ -81,6 +81,7 @@ h4 {
   border-radius: 2em;
   box-sizing: border-box;
   text-decoration: none;
+  font-size: 15px;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   color: #ffffff;
@@ -91,7 +92,19 @@ h4 {
 }
 
 .button:hover {
+  background-color: #4095c6;
+}
+
+.select-css {
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
   background-color: #4eb5f1;
+  border-radius: 2em;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: #ffffff;
+  border: none;
 }
 
 @media all and (max-width: 30em) {
